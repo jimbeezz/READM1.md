@@ -31,5 +31,20 @@
 | Суббота     | Работа с домашним заданием, прогулка с друзьями       |
 | Воскресенье | Делаю то, что подвернётся |
 
-## Турнир-царь горы, созданный из моих плейлистов, чтобы определить мой любимый трек
-[Открыть таблицу турнира](file:///C:/Users/begor/Desktop/tournament.html)
+## пример вывода простых чисел, через решето эратосфена 
+```
+def sieve_of_eratosthenes(limit):
+    primes = [True] * (limit + 1) 
+    primes[0] = primes[1] = False # 0 и 1 не простые
+
+    for num in range(2, int(limit**0.5) + 1):
+        if primes[num]: # Если число простое
+            for multiple in range(num * num, limit + 1, num):
+                primes[multiple] = False
+
+    prime_numbers = [i for i, is_prime in enumerate(primes) if is_prime]
+    return prime_numbers
+
+limit = 100
+print(sieve_of_eratosthenes(limit))
+```
